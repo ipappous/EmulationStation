@@ -66,7 +66,7 @@ GuiMenu::GuiMenu(Window* window) : GuiComponent(window), mMenu(window, "MAIN MEN
 
 			mWindow->pushGui(s);
 	});
-
+/*
 	addEntry("SOUND SETTINGS", 0x777777FF, true, 
 		[this] {
 			auto s = new GuiSettings(mWindow, "SOUND SETTINGS");
@@ -169,7 +169,7 @@ GuiMenu::GuiMenu(Window* window) : GuiComponent(window), mMenu(window, "MAIN MEN
 		[this] { 
 			mWindow->pushGui(new GuiDetectDevice(mWindow, false, nullptr));
 	});
-
+*/
 	addEntry("QUIT", 0x777777FF, true, 
 		[this] {
 			auto s = new GuiSettings(mWindow, "QUIT");
@@ -177,6 +177,7 @@ GuiMenu::GuiMenu(Window* window) : GuiComponent(window), mMenu(window, "MAIN MEN
 			Window* window = mWindow;
 
 			ComponentListRow row;
+/*
 			row.makeAcceptInputHandler([window] {
 				window->pushGui(new GuiMsgBox(window, "REALLY RESTART?", "YES", 
 				[] { 
@@ -197,7 +198,7 @@ GuiMenu::GuiMenu(Window* window) : GuiComponent(window), mMenu(window, "MAIN MEN
 			});
 			row.addElement(std::make_shared<TextComponent>(window, "SHUTDOWN SYSTEM", Font::get(FONT_SIZE_MEDIUM), 0x777777FF), true);
 			s->addRow(row);
-
+*/
 			if(Settings::getInstance()->getBool("ShowExit"))
 			{
 				row.elements.clear();
@@ -218,7 +219,7 @@ GuiMenu::GuiMenu(Window* window) : GuiComponent(window), mMenu(window, "MAIN MEN
 
 	mVersion.setFont(Font::get(FONT_SIZE_SMALL));
 	mVersion.setColor(0xC6C6C6FF);
-	mVersion.setText("EMULATIONSTATION V" + strToUpper(PROGRAM_VERSION_STRING));
+	mVersion.setText("The ArtCades V0.1");
 	mVersion.setAlignment(ALIGN_CENTER);
 
 	addChild(&mMenu);
